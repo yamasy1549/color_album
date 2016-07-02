@@ -20,6 +20,10 @@
     <%= image_tag(@design.image.url(:thumbnail)) %>
     <%= f.file_field :image %>
   </div>
+  <div class="field">
+    <%= f.label :tag_list, "tags" %><br>
+    <%= text_field_tag 'design[tag_list]', @design.tag_list.join(',') %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

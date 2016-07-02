@@ -10,5 +10,12 @@
   <%= image_tag(@design.image.url) %>
 </p>
 
+<p>
+  <strong>Tags:</strong>
+  <% @design.tag_list.each do |tag| %>
+    <span><%= tag %></span>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_design_path(@design) %> |
 <%= link_to 'Back', designs_path %>
