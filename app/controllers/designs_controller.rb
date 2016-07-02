@@ -65,7 +65,7 @@ class DesignsController < ApplicationController
 
     def get_color_info
       Design.transaction do
-        uri = URI.parse('http://localhost:4567/color_info')
+        uri = URI.parse('http://color-album-api-server.herokuapp.com/color_info')
         http = Net::HTTP.new(uri.host, uri.port)
 
         req = Net::HTTP::Post.new(uri.request_uri)
