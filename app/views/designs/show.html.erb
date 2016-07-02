@@ -7,7 +7,7 @@
 
 <p>
   <strong>Image:</strong>
-  <%= @design.image %>
+  <%= image_tag(@design.image.url) %>
 </p>
 
 <%= link_to 'Edit', edit_design_path(@design) %> |
