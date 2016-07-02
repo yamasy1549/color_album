@@ -1,4 +1,5 @@
 class DesignsController < ApplicationController
+  skip_before_filter :verify_authenticity_token
   before_action :set_design, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -20,6 +21,8 @@ class DesignsController < ApplicationController
 
     respond_to do |format|
       if @design.save
+        get_color_info
+
         format.html { redirect_to @design, notice: 'Design was successfully created.' }
         format.json { render :show, status: :created, location: @design }
       else
@@ -32,6 +35,8 @@ class DesignsController < ApplicationController
   def update
     respond_to do |format|
       if @design.update(design_params)
+        get_color_info
+
         format.html { redirect_to @design, notice: 'Design was successfully updated.' }
         format.json { render :show, status: :ok, location: @design }
       else
@@ -56,5 +61,19 @@ class DesignsController < ApplicationController
 
     def design_params
       params.require(:design).permit(:title, :image, :tag_list)
+    end
+
+    def get_color_info
+      Design.transaction do
+        uri = URI.parse('http://localhost:4567/color_info')
+        http = Net::HTTP.new(uri.host, uri.port)
+
+        req = Net::HTTP::Post.new(uri.request_uri)
+        req["Content-Type"] = "application/json"
+        req.body = { image: @design.image.url }.to_json
+        res = http.request(req)
+        @design.tag_list.add(JSON.parse(res.body))
+        @design.save
+      end
     end
 end
