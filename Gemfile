@@ -14,6 +14,7 @@ gem 'carrierwave'
 gem 'cloudinary'
 gem 'acts-as-taggable-on', '~> 3.4'
 gem 'masonry-rails'
+gem 'font-awesome-rails'
 
 gem 'jquery-rails'
 gem 'turbolinks'
