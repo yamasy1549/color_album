@@ -9,18 +9,13 @@
 <body>
   <nav>
     <%= form_tag '/search', method: :get do %>
-      <p>
-        <%= text_field :tag_search, params[:tag_search] %>
-        <%= submit_tag '検索' %>
-      </p>
+      <%= text_field :tag_search, params[:tag_search], placeholder: 'タグ検索' %>
     <% end %>
 
-    <ul>
-      <li>ほげ</li>
-      <li>ほげ</li>
-      <li>ほげ</li>
-      <li>ほげ</li>
-      <li>ほげ</li>
+    <ul class="custom-tags">
+      <% ActsAsTaggableOn::Tag.most_used(30).each do |tag| %>
+        <li><%= link_to tag, search_path(tag_search: tag.name), class: 'tag' %></li>
+      <% end %>
     </ul>
   </nav>
 

@@ -35,5 +35,52 @@ html {
 }
 
 body { display: flex; }
-nav { width: 20%; }
-main { width: 80%; }
+nav {
+  width: 20%;
+  padding: 50px 20px;
+}
+main {
+  width: 80%;
+  padding: 50px 50px;
+}
+
+nav {
+  background-color: #e5b8b7;
+
+  input[type=text] {
+    width: 100%;
+    background-color: lighten(#e5b8b7, 10%);
+    padding: 10px 20px;
+
+    &:focus {
+      outline: 2px solid darken(#e5b8b7, 10%);
+    }
+  }
+}
+
+.custom-tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+
+  li {
+    display: block;
+    flex: auto;
+    border: 1px solid #eee;
+    text-align: center;
+  }
+  .tag {
+    display: block;
+    background-color: #fff;
+    font-size: 0.8rem;
+    padding: 5px 16px;
+    color: #1E1E1E;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      background-color: #e5b8b7;
+      color: #fff;
+    }
+  }
+}
