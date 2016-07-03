@@ -8,6 +8,13 @@
 </head>
 <body>
   <nav>
+    <%= form_tag '/search', method: :get do %>
+      <p>
+        <%= text_field :tag_search, params[:tag_search] %>
+        <%= submit_tag '検索' %>
+      </p>
+    <% end %>
+
     <ul>
       <li>ほげ</li>
       <li>ほげ</li>

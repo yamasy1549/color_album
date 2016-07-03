@@ -24,7 +24,7 @@
       </div>
       <ul class="custom-tags">
         <% design.custom_tag_list.each do |tag| %>
-          <li><%= link_to tag, '', class: 'tag' %></li>
+          <li><%= link_to tag, search_path(tag_search: tag), class: 'tag' %></li>
         <% end %>
       </ul>
     </li>

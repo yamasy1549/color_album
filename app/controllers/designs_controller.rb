@@ -54,6 +54,12 @@ class DesignsController < ApplicationController
     end
   end
 
+
+  def tag_search
+    @designs = Design.tag_search(params[:tag_search])
+    render 'index'
+  end
+
   private
     def set_design
       @design = Design.find(params[:id])
