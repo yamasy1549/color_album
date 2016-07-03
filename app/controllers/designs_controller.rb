@@ -70,7 +70,8 @@ class DesignsController < ApplicationController
 
         req = Net::HTTP::Post.new(uri.request_uri)
         req["Content-Type"] = "application/json"
-        req.body = { image: @design.image.url }.to_json
+        image_uri = @design.image.url.sub(/upload/, 'upload/c_fit,h_100,w_100')
+        req.body = { image: image_uri }.to_json
         res = http.request(req)
         @design.color_tag_list = JSON.parse(res.body)
         @design.save
