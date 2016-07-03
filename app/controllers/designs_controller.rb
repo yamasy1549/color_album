@@ -60,7 +60,7 @@ class DesignsController < ApplicationController
     end
 
     def design_params
-      params.require(:design).permit(:title, :image, :tag_list)
+      params.require(:design).permit(:title, :image, :color_tag_list)
     end
 
     def get_color_info
@@ -72,7 +72,7 @@ class DesignsController < ApplicationController
         req["Content-Type"] = "application/json"
         req.body = { image: @design.image.url }.to_json
         res = http.request(req)
-        @design.tag_list.add(JSON.parse(res.body))
+        @design.color_tag_list = JSON.parse(res.body)
         @design.save
       end
     end
