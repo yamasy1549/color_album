@@ -13,7 +13,7 @@
     <% end %>
 
     <ul class="custom-tags">
-      <% ActsAsTaggableOn::Tag.most_used(30).each do |tag| %>
+      <% ActsAsTaggableOn::Tag.most_used(30).select{ |tag| tag.taggings_count > 0 }.each do |tag| %>
         <li><%= link_to tag, search_path(tag_search: tag.name), class: 'tag' %></li>
       <% end %>
     </ul>
