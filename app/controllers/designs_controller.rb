@@ -64,17 +64,19 @@ class DesignsController < ApplicationController
     end
 
     def get_color_info
-      Design.transaction do
-        uri = URI.parse('http://color-album-api-server.herokuapp.com/color_info')
-        http = Net::HTTP.new(uri.host, uri.port)
+      if design_params[:image]
+        Design.transaction do
+          uri = URI.parse('http://color-album-api-server.herokuapp.com/color_info')
+          http = Net::HTTP.new(uri.host, uri.port)
 
-        req = Net::HTTP::Post.new(uri.request_uri)
-        req["Content-Type"] = "application/json"
-        image_uri = @design.image.url.sub(/upload/, 'upload/c_fit,h_100,w_100')
-        req.body = { image: image_uri }.to_json
-        res = http.request(req)
-        @design.color_tag_list = JSON.parse(res.body)
-        @design.save
+          req = Net::HTTP::Post.new(uri.request_uri)
+          req["Content-Type"] = "application/json"
+          image_uri = @design.image.url.sub(/upload/, 'upload/c_fit,h_100,w_100')
+          req.body = { image: image_uri }.to_json
+          res = http.request(req)
+          @design.color_tag_list = JSON.parse(res.body)
+          @design.save
+        end
       end
     end
 end
