@@ -1,20 +1,32 @@
 <p id="notice"><%= notice %></p>
 
 <ul id="masonry-container">
+  <li class="mas-box new">
+    <div class="image-wrapper">
+      <%= link_to new_design_path, class: 'image' do %>
+        <%= image_tag 'new_design.png' %>
+      <% end %>
+    </div>
+  </li>
   <% @designs.each do |design| %>
     <li class="mas-box">
-      <h2><%= design.title %></h2>
-      <%= image_tag(design.image.url(:thumbnail)) %>
-      <p>
-        <% design.color_tag_list.each do |tag| %>
-          <span><%= tag %></span><br>
+      <div class="image-wrapper">
+        <%= link_to design_path(design), class: 'image' do %>
+          <%= image_tag design.image.url(:gallery) %>
         <% end %>
-      </p>
-      <span><%= link_to 'Show', design %></span>
-      <span><%= link_to 'Edit', edit_design_path(design) %></span>
-      <span><%= link_to 'Destroy', design, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+        <div class="info">
+          <h2 class="title"><%= link_to design.title, design_path(design) %></h2>
+          <div class="icons">
+            <%= edit_icon(edit_design_path(design)) %>
+            <%= destroy_icon(design) %>
+          </div>
+        </div>
+      </div>
+      <ul class="custom-tags">
+        <% design.custom_tag_list.each do |tag| %>
+          <li><%= link_to tag, '', class: 'tag' %></li>
+        <% end %>
+      </ul>
     </li>
 <% end %>
 </ul>
-
-<%= link_to 'New Design', new_design_path %>

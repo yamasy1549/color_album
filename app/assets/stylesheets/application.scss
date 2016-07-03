@@ -17,6 +17,23 @@
  *= require 'masonry/infinitescroll'
  *= require 'masonry/right-to-left'
  *= require 'masonry/transitions'
+ *= require font-awesome
+ *= require 'sanitize'
  *= require_tree .
  *= require_self
  */
+
+html {
+  font-size: 62.5%;
+  font-family: "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  background-color: #fff;
+  position: relative;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body { display: flex; }
+nav { width: 20%; }
+main { width: 80%; }

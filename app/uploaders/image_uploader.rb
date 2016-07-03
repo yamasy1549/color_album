@@ -1,6 +1,11 @@
 class ImageUploader < CarrierWave::Uploader::Base
   include Cloudinary::CarrierWave
 
+  version :gallery do
+    process :resize_to_fit => [300, 300]
+    process quality: 30
+  end
+
   version :thumbnail do
     process :resize_to_fit => [100, 100]
   end

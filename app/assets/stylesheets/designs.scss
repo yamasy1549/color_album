@@ -1,3 +1,104 @@
-// Place all the styles related to the Designs controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#masonry-container {
+  list-style: none;
+  padding: 0;
+
+  .mas-box {
+    width: 300px;
+    border: 1px solid #fff;
+    margin-bottom: 10px;
+
+    .image {
+      position: relative;
+      display: block;
+
+      img {
+        width: 100%;
+        transition: all 0.3s ease-in-out;
+      }
+    }
+
+    .info {
+      position: absolute;
+      padding: 16px;
+      bottom: 0;
+      background-color: rgba(#000, 0.6);
+      width: 100%;
+      opacity: 0;
+      transition: all 0.3s ease-in-out;
+
+      .title {
+        font-size: 1.2rem;
+        letter-spacing: 0.1rem;
+        font-weight: normal;
+
+        a { color: #fff; }
+      }
+
+      .icons {
+        position: absolute;
+        right: 16px;
+        bottom: 16px;
+
+        [class^=icon_] {
+          font-size: 1.4rem;
+          color: #999;
+          margin: 16px 16px 16px 0;
+          transition: all 0.3s ease-in-out;
+
+          &:last-child { margin-right: 0; }
+
+          &:hover,
+          &:active {
+            color: #DD2266
+          }
+        }
+      }
+    }
+
+    .custom-tags {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      flex-grow: 1;
+
+      li {
+        display: block;
+        flex: auto;
+        border: 1px solid #eee;
+        text-align: center;
+      }
+
+      .tag {
+        display: block;
+        background-color: #fff;
+        font-size: 0.8rem;
+        padding: 5px 16px;
+        color: #1E1E1E;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+          background-color: #e5b8b7;
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  .mas-box.new {
+  }
+
+  .image-wrapper {
+    position: relative;
+    overflow: hidden;
+
+    &:hover,
+    &:active {
+      .image > img {
+        opacity: 0.7;
+        transform: scale(1.02);
+      }
+
+      .info { opacity: 1; }
+    }
+  }
+}
