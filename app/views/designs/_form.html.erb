@@ -21,6 +21,10 @@
     <%= f.file_field :image %>
   </div>
   <div class="field">
+    <%= f.label :memo %><br>
+    <%= f.text_area :memo %>
+  </div>
+  <div class="field">
     <%= f.label :tag_list, "tags" %><br>
     <%= text_field_tag 'design[custom_tag_list]', @design.custom_tag_list.join(',') %>
   </div>

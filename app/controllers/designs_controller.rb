@@ -66,7 +66,7 @@ class DesignsController < ApplicationController
     end
 
     def design_params
-      params.require(:design).permit(:title, :image, :color_tag_list, :custom_tag_list)
+      params.require(:design).permit(:title, :image, :memo, :color_tag_list, :custom_tag_list)
     end
 
     def get_color_info
