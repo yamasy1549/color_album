@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
 
+<% if params[:tag_search] %>
+  <h2 class="sub-title"><%= fa_icon('tag', text: params[:tag_search]) %></h2>
+<% end %>
+
 <ul id="masonry-container">
   <li class="mas-box new">
     <div class="image-wrapper">
@@ -15,7 +19,7 @@
           <%= image_tag design.image.url(:gallery) %>
         <% end %>
         <div class="info">
-          <h2 class="title"><%= link_to design.title, design_path(design) %></h2>
+          <h3 class="title"><%= link_to design.title, design_path(design) %></h3>
           <div class="icons">
             <%= edit_icon(edit_design_path(design)) %>
             <%= destroy_icon(design) %>
