@@ -18,7 +18,13 @@
     </ul>
   </nav>
 
-  <main><%= yield %></main>
+  <main>
+    <% if notice %>
+      <p id="notice"><%= notice %></p>
+    <% end %>
+
+    <%= yield %>
+  </main>
 
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </body>

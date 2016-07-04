@@ -61,6 +61,13 @@ nav {
   }
 }
 
+#notice {
+  margin-bottom: 40px;
+  background-color: lighten(#E5B8B7, 10%);
+  padding: 20px 40px;
+  color: darken(#E5B8B7, 10%);
+}
+
 .custom-tags {
   list-style: none;
   display: flex;
