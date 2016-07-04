@@ -42,10 +42,13 @@ nav {
 main {
   width: 80%;
   padding: 50px 50px;
+  margin-left: 20%;
 }
 
 nav {
+  position: fixed;
   background-color: #e5b8b7;
+  height: 100%;
 
   input[type=text] {
     width: 100%;
