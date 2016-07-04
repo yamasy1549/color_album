@@ -56,7 +56,30 @@
     }
   }
 
-  .mas-box.new {
+  .mas-box {
+    .btn-new {
+      background: #ccc;
+      width: 300px;
+      height: 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+
+      span {
+        color: #fff;
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-bottom: 16px;
+
+        &:before {
+          content: '+';
+          display: block;
+          font-size: 5rem;
+        }
+      }
+    }
   }
 
   .image-wrapper {
@@ -65,7 +88,8 @@
 
     &:hover,
     &:active {
-      .image > img {
+      .image > img,
+      .btn-new {
         opacity: 0.7;
         transform: scale(1.02);
       }
