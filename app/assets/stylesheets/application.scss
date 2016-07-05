@@ -37,11 +37,11 @@ html {
 body { display: flex; }
 nav {
   width: 20%;
-  padding: 50px 20px;
+  padding: 50px;
 }
 main {
   width: 80%;
-  padding: 50px 50px;
+  padding: 50px;
   margin-left: 20%;
 }
 
@@ -59,6 +59,11 @@ nav {
 
     .tori {
       margin: 0 40px 40px;
+
+      .patapata {
+        transform-origin: 0% 150%;
+        animation: tori-hane 0.3s ease-in-out 0s infinite alternate;
+      }
 
       &:hover,
       &:active {
@@ -82,13 +87,35 @@ nav {
     }
   }
 
+  @mixin placeholderColor($color) {
+    &:placeholder-shown {
+      color: $color;
+    }
+    &::-webkit-input-placeholder {
+      color:$color;
+    }
+    &:-moz-placeholder {
+      color:$color;
+      opacity: 1;
+    }
+    &::-moz-placeholder {
+      color:$color;
+      opacity: 1;
+    }
+    &:-ms-input-placeholder {
+      color:$color;
+    }
+  }
+
   input[type=text] {
     width: 100%;
-    background-color: lighten(#e5b8b7, 10%);
+    border: 2px solid #FC8B3F;
     padding: 10px 20px;
+    margin-bottom: 40px;
+    @include placeholderColor(#FC8B3F);
 
     &:focus {
-      outline: 2px solid darken(#e5b8b7, 10%);
+      outline: 3px solid darken(#FC8B3F, 10%);
     }
   }
 }
@@ -109,20 +136,21 @@ nav {
   li {
     display: block;
     flex: auto;
-    border: 1px solid #eee;
     text-align: center;
   }
   .tag {
     display: block;
     background-color: #fff;
     font-size: 0.8rem;
-    padding: 5px 16px;
+    padding: 5px 20px;
     color: #1E1E1E;
+    border: 1px solid #eee;
     transition: all 0.3s ease-in-out;
 
     &:hover {
-      background-color: #e5b8b7;
+      background-color: #FC8B3F;
       color: #fff;
+      border: 1px solid #FC8B3F;
     }
   }
 }
