@@ -47,8 +47,40 @@ main {
 
 nav {
   position: fixed;
-  background-color: #e5b8b7;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(#999, 0.3);
   height: 100%;
+
+  #logo {
+    &:hover,
+    &:active {
+      opacity: 0.7;
+    }
+
+    .tori {
+      margin: 0 40px 40px;
+
+      &:hover,
+      &:active {
+        .tori-hane {
+          transform-origin: 0% 150%;
+          animation: tori-hane 0.3s ease-in-out 0s infinite alternate;
+        }
+      }
+
+      @keyframes tori-hane {
+        0% {
+          transform: translate(0, 0) rotate(0deg);
+        }
+        50% {
+          transform: translate(10%, 0%) rotate(-10deg);
+        }
+        100% {
+          transform: translate(0, 0) rotate(0deg);
+        }
+      }
+    }
+  }
 
   input[type=text] {
     width: 100%;
