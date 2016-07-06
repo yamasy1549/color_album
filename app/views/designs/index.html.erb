@@ -5,30 +5,12 @@
 <ul id="masonry-container">
   <li class="mas-box">
     <div class="image-wrapper">
-      <%= link_to new_design_path, class: 'image' do %>
+      <%= link_to new_design_path, remote: true, class: 'image' do %>
         <button class="btn-new"><span>デザインを追加する</span></button>
       <% end %>
+      <%= render "index" %>
     </div>
   </li>
-  <% @designs.each do |design| %>
-    <li class="mas-box">
-      <div class="image-wrapper">
-        <%= link_to design_path(design), class: 'image' do %>
-          <%= image_tag design.image.url(:gallery) %>
-        <% end %>
-        <div class="info">
-          <h3 class="title"><%= link_to design.title, design_path(design) %></h3>
-          <div class="icons">
-            <%= edit_icon(edit_design_path(design)) %>
-            <%= destroy_icon(design) %>
-          </div>
-        </div>
-      </div>
-      <ul class="custom-tags">
-        <% design.custom_tag_list.each do |tag| %>
-          <li><%= link_to tag, search_path(tag_search: tag), class: 'tag' %></li>
-        <% end %>
-      </ul>
-    </li>
-<% end %>
 </ul>
+
+<div id="design-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>

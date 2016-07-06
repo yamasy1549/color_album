@@ -19,9 +19,30 @@
  *= require 'masonry/transitions'
  *= require font-awesome
  *= require 'sanitize'
+ *= require 'mixin'
  *= require_tree .
  *= require_self
  */
+
+@mixin placeholderColor($color) {
+  &:placeholder-shown {
+    color: $color;
+  }
+  &::-webkit-input-placeholder {
+    color:$color;
+  }
+  &:-moz-placeholder {
+    color:$color;
+    opacity: 1;
+  }
+  &::-moz-placeholder {
+    color:$color;
+    opacity: 1;
+  }
+  &:-ms-input-placeholder {
+    color:$color;
+  }
+}
 
 html {
   font-size: 62.5%;
@@ -87,26 +108,6 @@ nav {
     }
   }
 
-  @mixin placeholderColor($color) {
-    &:placeholder-shown {
-      color: $color;
-    }
-    &::-webkit-input-placeholder {
-      color:$color;
-    }
-    &:-moz-placeholder {
-      color:$color;
-      opacity: 1;
-    }
-    &::-moz-placeholder {
-      color:$color;
-      opacity: 1;
-    }
-    &:-ms-input-placeholder {
-      color:$color;
-    }
-  }
-
   input[type=text] {
     width: 100%;
     border: 2px solid #FC8B3F;
@@ -122,9 +123,9 @@ nav {
 
 #notice {
   margin-bottom: 40px;
-  background-color: lighten(#E5B8B7, 10%);
+  background-color: lighten(#94BF10, 20%);
   padding: 20px 40px;
-  color: darken(#E5B8B7, 10%);
+  color: darken(#94BF10, 10%);
 }
 
 .custom-tags {
@@ -151,6 +152,25 @@ nav {
       background-color: #FC8B3F;
       color: #fff;
       border: 1px solid #FC8B3F;
+    }
+  }
+}
+
+.modal-dialog {
+  position: absolute;
+  width: 70%;
+  background: #fff;
+  padding: 50px;
+  top: 0;
+
+  .modal-content {
+    position: relative;
+
+    .close {
+      position: absolute;
+      right: 0;
+      top: 0;
+      font-size: 3rem;
     }
   }
 }

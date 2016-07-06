@@ -6,7 +6,7 @@ module DesignsHelper
   end
 
   def edit_icon(target)
-    link_to target, class: 'icon_destroy' do
+    link_to target, remote: true, class: 'icon_destroy' do
       fa_icon 'pencil'
     end
   end

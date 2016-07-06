@@ -22,12 +22,12 @@ class DesignsController < ApplicationController
     respond_to do |format|
       if @design.save
         get_color_info
+        @designs = Design.all
 
-        format.html { redirect_to @design, notice: 'Design was successfully created.' }
-        format.json { render :show, status: :created, location: @design }
+        flash.now[:notice] = 'Design was successfully created.'
+        format.html { render :index }
       else
         format.html { render :new }
-        format.json { render json: @design.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -36,21 +36,20 @@ class DesignsController < ApplicationController
     respond_to do |format|
       if @design.update(design_params)
         get_color_info
+        @designs = Design.all
 
-        format.html { redirect_to @design, notice: 'Design was successfully updated.' }
-        format.json { render :show, status: :ok, location: @design }
+        format.html { redirect_to designs_url, notice: 'Design was successfully updated.' }
       else
         format.html { render :edit }
-        format.json { render json: @design.errors, status: :unprocessable_entity }
       end
     end
   end
 
   def destroy
     @design.destroy
+
     respond_to do |format|
       format.html { redirect_to designs_url, notice: 'Design was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 

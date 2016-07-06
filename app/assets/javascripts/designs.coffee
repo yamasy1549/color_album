@@ -15,3 +15,6 @@ $(document).ready ->
   )
   .done ->
     $('.tori-hane').removeClass('patapata')
+
+  $(document).on 'click', '.close', ->
+    $('.modal-dialog').hide()
