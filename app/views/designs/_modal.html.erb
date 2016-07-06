@@ -20,26 +20,30 @@
         </div>
       <% end %>
 
-      <div class="field">
-        <%= f.label :title %><br>
-        <%= f.text_field :title %>
-      </div>
-      <div class="field">
-        <%= f.label :image %><br>
-        <%= image_tag(@design.image.url(:thumbnail)) %>
-        <%= f.file_field :image %>
-      </div>
-      <div class="field">
-        <%= f.label :memo %><br>
-        <%= f.text_area :memo %>
-      </div>
-      <div class="field">
-        <%= f.label :tag_list, "tags" %><br>
-        <%= text_field_tag 'design[custom_tag_list]', @design.custom_tag_list.join(',') %>
-      </div>
+      <ul class="forms">
+        <li>
+          <p><%= f.label :title %></p>
+          <%= f.text_field :title %>
+        </li>
+        <li>
+          <p><%= f.label :image %></p>
+          <%= image_tag(@design.image.url(:thumbnail)) %>
+          <%= f.file_field :image %>
+        </li>
+        <li>
+          <p><%= f.label :memo %></p>
+          <%= f.text_area :memo %>
+        </li>
+        <li>
+          <%= f.label :tag_list, "tags" %><br>
+          <%= text_field_tag 'design[custom_tag_list]', @design.custom_tag_list.join(',') %>
+        </li>
+      </ul>
       <div class="actions">
         <%= f.submit %>
       </div>
     <% end %>
   </div>
 </div>
+
+<div id='modal-back'></div>

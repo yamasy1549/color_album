@@ -7,28 +7,25 @@
       </button>
     </div>
 
-    <p>
-      <strong>Title:</strong>
-      <%= @design.title %>
-    </p>
+    <div class="modal-content masonry-container">
+      <%= image_tag(@design.image.url, class: 'image mas-box') %>
 
-    <p>
-      <strong>Image:</strong>
-      <%= image_tag(@design.image.url) %>
-    </p>
+      <div class="info mas-box">
+        <h2 class="title"><%= @design.title %></h2>
+        <p><%= @design.memo %></p>
+        <ul class="custom-tags">
+          <% @design.custom_tag_list.each do |tag| %>
+            <li><%= link_to tag, search_path(tag_search: tag), class: 'tag' %></li>
+          <% end %>
+        </ul>
 
-    <p>
-      <strong>Memo:</strong>
-      <%= @design.memo %>
-    </p>
-
-    <p>
-      <strong>Tags:</strong>
-      <% @design.custom_tag_list.each do |tag| %>
-        <span><%= tag %></span>
-      <% end %>
-    </p>
-
-    <%= link_to 'Edit', edit_design_path(@design) %>
+        <div class="icons">
+          <%= edit_icon(edit_design_path(@design)) %>
+          <%= destroy_icon(@design) %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+
+<div id='modal-back'></div>

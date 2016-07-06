@@ -18,3 +18,4 @@ $(document).ready ->
 
   $(document).on 'click', '.close', ->
     $('.modal-dialog').hide()
+    $('#modal-back').hide()
