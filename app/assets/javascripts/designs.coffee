@@ -3,7 +3,7 @@ $(document).ready ->
     $('.tori-hane').addClass('patapata')
     $('#masonry-container').masonry
       itemSelector: '.mas-box',
-      gutterWidth: 16,
+      gutterWidth: 30,
       isAnimated: true,
       animationOptions: {
         duration: 500,
