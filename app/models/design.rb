@@ -4,6 +4,8 @@ class Design < ActiveRecord::Base
 
   mount_uploader :image, ImageUploader
 
+  validates :title, presence: true
+
   def self.tag_search(name)
     Design.tagged_with(name, any: true)
   end
