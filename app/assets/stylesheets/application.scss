@@ -124,9 +124,17 @@ nav {
 
 #notice {
   margin-bottom: 40px;
-  background-color: lighten(#94BF10, 20%);
+  background-color: #94BF10;
   padding: 20px 40px;
-  color: darken(#94BF10, 10%);
+  color: #fff;
+}
+
+#error_explanation {
+  margin-bottom: 40px;
+  background-color: #FF5500;
+  padding: 20px 40px;
+  color: #fff;
+  width: 90%;
 }
 
 .custom-tags {

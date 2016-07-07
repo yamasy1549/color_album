@@ -27,7 +27,7 @@ class DesignsController < ApplicationController
         flash.now[:notice] = 'Design was successfully created.'
         format.html { render :index }
       else
-        format.html { render :new }
+        format.js { render :edit }
       end
     end
   end
@@ -40,7 +40,7 @@ class DesignsController < ApplicationController
 
         format.html { redirect_to designs_url, notice: 'Design was successfully updated.' }
       else
-        format.html { render :edit }
+        format.js { render :edit }
       end
     end
   end
