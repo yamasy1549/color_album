@@ -1,0 +1,38 @@
+$tablet: 1000px;
+$smartphone: 400px;
+
+$font-size-default: 62.5%;
+$font-size-small: 0.8rem;
+$font-size-big: 1.8rem;
+$font-size-icon: 1.4rem;
+$font-family-default: "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+
+$white: #fff;
+$black: #000;
+$gray: #666;
+$light-gray: #999;
+$red: #FF5500;
+$orange: #fc8b3f;
+$light-green: #94BF10;
+
+$space-small: 10px;
+$space-middle: 20px;
+$space-large: 50px;
+
+$letter-spacing-title: 0.1rem;
+$opacity-default: 0.6;
+
+$nav-padding: $space-large;
+$nav-width: 20%;
+$main-padding: $space-large;
+$main-width: 100% - $nav-width;
+$modal-dialog-width: 90%;
+$modal-form-width: 90%;
+$mas-box-width: 300px;
+$mas-box-gutter-width: 30px;
+
+$nav-width-tablet: 30%;
+$main-width-tablet: 100% - $nav-width-tablet;
+
+$nav-width-smartphone: 30%;
+$main-width-smartphone: 100% - $nav-width-smartphone;

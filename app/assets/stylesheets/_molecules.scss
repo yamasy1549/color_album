@@ -1,0 +1,31 @@
+#notice { @include notice; }
+
+#error_explanation {
+  @include notice($white, $red);
+  width: $modal-form-width;
+}
+
+.tag {
+  display: block;
+  background-color: $white;
+  font-size: $font-size-small;
+  padding: $space-small/2 $space-middle;
+  color: lighten($black, 20%);
+  border: 1px solid lighten($light-gray, 30%);
+  @include transition;
+
+  &:hover {
+    background-color: $orange;
+    color: $white;
+    border: 1px solid $orange;
+  }
+}
+
+.close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 3rem;
+  cursor: pointer;
+  padding: 0 $space-middle;
+}

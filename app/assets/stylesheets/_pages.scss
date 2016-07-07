@@ -1,0 +1,27 @@
+html {
+  font-size: $font-size-default;
+  font-family: $font-family-default;
+  background-color: $white;
+  position: relative;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body { display: flex; }
+
+main {
+  width: $main-width;
+  height: 100%;
+  padding: $main-padding;
+  margin-left: $nav-width;
+  position: relative;
+
+  @media(max-width: $tablet) {
+    margin-left: $nav-width-tablet;
+  }
+  @media(max-width: $smartphone) {
+    margin-left: $nav-width-smartphone;
+  }
+}

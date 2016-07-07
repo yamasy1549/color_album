@@ -1,0 +1,65 @@
+@keyframes tori-hane {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(10%, 0%) rotate(-10deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+@mixin placeholderColor($color) {
+  &:placeholder-shown {
+    color: $color;
+  }
+  &::-webkit-input-placeholder {
+    color:$color;
+  }
+  &:-moz-placeholder {
+    color:$color;
+    opacity: 1;
+  }
+  &::-moz-placeholder {
+    color:$color;
+    opacity: 1;
+  }
+  &:-ms-input-placeholder {
+    color:$color;
+  }
+}
+
+@mixin transition($duration: 0.3s) {
+  transition: all $duration ease-in-out;
+}
+
+@mixin opacity-hover($opacity: $opacity-default) {
+  &:hover,
+  &:active {
+    opacity: $opacity;
+  }
+}
+
+@mixin patapata-animation($animation: tori-hane, $duration: 0.3s) {
+  transform-origin: 0% 150%;
+  animation: $animation $duration ease-in-out 0s infinite alternate;
+}
+
+@mixin color-hover($color) {
+  &:hover,
+  &:active {
+    color: $color;
+  }
+}
+
+@mixin box-shadow($color: rgba($light-gray, 0.3)) {
+  box-shadow: 0 0 $space-small $color;
+}
+
+@mixin notice($color: $white, $background-color: $light-green) {
+  margin-bottom: $space-middle*2;
+  padding: $space-middle $space-middle*2;
+  color: $color;
+  background-color: $background-color;
+}

@@ -1,31 +1,11 @@
-@mixin placeholderColor($color) {
-  &:placeholder-shown {
-    color: $color;
-  }
-  &::-webkit-input-placeholder {
-    color:$color;
-  }
-  &:-moz-placeholder {
-    color:$color;
-    opacity: 1;
-  }
-  &::-moz-placeholder {
-    color:$color;
-    opacity: 1;
-  }
-  &:-ms-input-placeholder {
-    color:$color;
-  }
-}
-
 #masonry-container {
   list-style: none;
   padding: 0;
 
   .mas-box {
-    width: 300px;
-    border: 1px solid #fff;
-    margin-bottom: 30px;
+    width: $mas-box-width;
+    border: 1px solid $white;
+    margin-bottom: $mas-box-gutter-width;
 
     .image {
       position: relative;
@@ -33,44 +13,40 @@
 
       img {
         width: 100%;
-        transition: all 0.3s ease-in-out;
+        @include transition;
       }
     }
 
     .info {
       position: absolute;
-      padding: 16px;
+      padding: $space-middle;
       bottom: 0;
-      background-color: rgba(#000, 0.6);
+      background-color: rgba($black, 0.6);
       width: 100%;
       opacity: 0;
-      transition: all 0.3s ease-in-out;
+      @include transition;
 
       .title {
         font-size: 1.2rem;
-        letter-spacing: 0.1rem;
+        letter-spacing: $letter-spacing-title;
         font-weight: normal;
 
-        a { color: #fff; }
+        a { color: $white; }
       }
 
       .icons {
         position: absolute;
-        right: 16px;
-        bottom: 16px;
+        right: $space-middle;
+        bottom: $space-middle;
 
         [class^=icon_] {
-          font-size: 1.4rem;
-          color: #999;
-          margin: 16px 16px 16px 0;
-          transition: all 0.3s ease-in-out;
+          font-size: $font-size-icon;
+          color: $light-gray;
+          margin: $space-middle $space-middle $space-middle 0;
+          @include transition;
+          @include color-hover($light-green);
 
           &:last-child { margin-right: 0; }
-
-          &:hover,
-          &:active {
-            color: #94BF10;
-          }
         }
       }
     }
@@ -78,17 +54,17 @@
 
   .mas-box {
     .btn-new {
-      background: #ccc;
-      width: 300px;
-      height: 300px;
+      background: lighten($light-gray, 20%);
+      width: $mas-box-width;
+      height: $mas-box-width;
       display: flex;
       justify-content: center;
       align-items: center;
-      transition: all 0.3s ease-in-out;
+      @include transition;
       cursor: pointer;
 
       span {
-        color: #fff;
+        color: $white;
         font-size: 1.2rem;
         font-weight: bold;
         margin-bottom: 16px;
@@ -110,7 +86,7 @@
     &:active {
       .image > img,
       .btn-new {
-        opacity: 0.7;
+        opacity: $opacity-default;
         transform: scale(1.02);
       }
 
@@ -120,14 +96,14 @@
 }
 
 .sub-title {
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-  color: #333;
-  letter-spacing: 0.1rem;
+  font-size: $font-size-big;
+  margin-bottom: $space-middle;
+  color: darken($black, 10%);
+  letter-spacing: $letter-spacing-title;
 
   i {
     font-size: 2.2rem;
-    color: #FC8B3F;
+    color: $orange;
     transform: rotate(-90deg);
   }
 }
@@ -140,23 +116,21 @@
   .info {
     width: 50%;
 
-    .title { font-size: 2rem; }
+    .title { font-size: $font-size-big; }
   }
 }
 
 input[type=text],
 textarea {
-  width: 90%;
-  border: 2px solid #FC8B3F;
-  padding: 10px 20px;
-  margin-bottom: 40px;
-  @include placeholderColor(lighten(#FC8B3F, 20%));
+  width: $modal-form-width;
+  border: 2px solid $orange;
+  padding: $space-small $space-middle;
+  margin-bottom: $space-middle*2;
+  @include placeholderColor(lighten($orange, 20%));
 
   &:focus {
-    outline: 3px solid darken(#FC8B3F, 10%);
+    outline: 3px solid darken($orange, 10%);
   }
 }
 
-.forms {
-  list-style: none;
-}
+.forms { list-style: none; }

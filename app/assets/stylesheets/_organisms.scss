@@ -1,0 +1,108 @@
+.global-nav {
+  position: fixed;
+  width: $nav-width;
+  height: 100%;
+  padding: $nav-padding;
+  background-color: $white;
+  @include box-shadow;
+
+  #logo {
+    @include opacity-hover;
+
+    .tori {
+      margin: 0 20% 20%;
+
+      .patapata { @include patapata-animation; }
+
+      &:hover,
+      &:active {
+        .tori-hane { @include patapata-animation; }
+      }
+    }
+  }
+
+  #tag_search { width: 100%; }
+
+  @media(max-width: $tablet) {
+    width: $nav-width-tablet;
+  }
+  @media(max-width: $smartphone) {
+    width: $nav-width-smartphone;
+  }
+}
+
+.custom-tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+
+  li {
+    display: block;
+    flex: auto;
+    text-align: center;
+  }
+}
+
+.modal-dialog {
+  position: absolute;
+  width: $modal-dialog-width;
+  background: $white;
+  padding: $space-large;
+  top: $space-large;
+  z-index: 2;
+
+  .modal-content {
+    position: relative;
+    padding-top: $space-large;
+
+    .image { width: 100%; }
+
+    .title {
+      font-size: $font-size-big;
+      margin-bottom: $space-middle;
+      color: lighten($black, 20%);
+      letter-spacing: $letter-spacing-title;
+    }
+
+    .custom-tags { width: 50%; }
+
+    .icons {
+      position: absolute;
+      right: $space-middle;
+      bottom: $space-middle;
+
+      [class^=icon_] {
+        font-size: 1.4rem;
+        color: $light-gray;
+        margin: $space-middle $space-middle $space-middle 0;
+        @include transition;
+        @include color-hover($light-green);
+
+        &:last-child { margin-right: 0; }
+      }
+    }
+  }
+
+  .actions input {
+    display: inline-block;
+    background: $orange;
+    padding: $space-small $space-middle;
+    color: $white;
+    font-weight: bold;
+    cursor: pointer;
+    @include transition;
+    @include opacity-hover;
+  }
+}
+
+#modal-back {
+  background: $light-gray;
+  width: $main-width;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  opacity: $opacity-default;
+  @include box-shadow($gray);
+}
