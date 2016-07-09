@@ -28,4 +28,8 @@
   font-size: 3rem;
   cursor: pointer;
   padding: 0 $space-middle;
+
+  @media(max-width: $smartphone) {
+    padding: 0;
+  }
 }

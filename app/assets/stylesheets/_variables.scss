@@ -1,5 +1,5 @@
 $tablet: 1000px;
-$smartphone: 400px;
+$smartphone: 600px;
 
 $font-size-default: 62.5%;
 $font-size-small: 0.8rem;
@@ -31,8 +31,8 @@ $modal-form-width: 90%;
 $mas-box-width: 300px;
 $mas-box-gutter-width: 30px;
 
-$nav-width-tablet: 30%;
+$nav-width-tablet: 35%;
 $main-width-tablet: 100% - $nav-width-tablet;
 
-$nav-width-smartphone: 30%;
-$main-width-smartphone: 100% - $nav-width-smartphone;
+$nav-width-smartphone: 100%;
+$main-width-smartphone: 100%;

@@ -21,13 +21,59 @@
     }
   }
 
+  .nav-target {
+    display: none;
+
+    @media(max-width: $smartphone) {
+      display: inline-block;
+    }
+  }
+
   #tag_search { width: 100%; }
 
   @media(max-width: $tablet) {
     width: $nav-width-tablet;
   }
+
   @media(max-width: $smartphone) {
     width: $nav-width-smartphone;
+    height: 60px;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    padding: 0;
+
+    header > *:not(h1):not(.nav-target),
+    .custom-tags {
+      display: none;
+    }
+
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      flex-grow: 1;
+    }
+
+    h1 { margin: 0 auto; }
+
+    .nav-target {
+      position: absolute;
+      right: 20px;
+      font-size: $font-size-icon;
+      color: rgba($light-gray, 0.4);
+      display: block;
+      margin: 19px 0;
+    }
+
+    #logo {
+      height: 60px;
+      display: inline-block;
+
+      .tori {
+        margin: 14px 0;
+        height: 30px;
+      }
+    }
   }
 }
 
@@ -45,12 +91,24 @@
 }
 
 .modal-dialog {
-  position: absolute;
-  width: $modal-dialog-width;
+  position: fixed;
+  max-height: 90%;
+  overflow: scroll;
+  width: $modal-dialog-width * 0.8;
   background: $white;
   padding: $space-large;
   top: $space-large;
   z-index: 2;
+
+  @media(max-width: $tablet) {
+    width: $modal-dialog-width * 0.6;
+  }
+
+  @media(max-width: $smartphone) {
+    width: $modal-dialog-width;
+    padding: $space-small $space-middle $space-middle;
+    margin: auto 2%;
+  }
 
   .modal-content {
     position: relative;
@@ -65,12 +123,25 @@
       letter-spacing: $letter-spacing-title;
     }
 
-    .custom-tags { width: 50%; }
+    .custom-tags {
+      width: 50%;
+
+      @media(max-width: $tablet) {
+        width: 100%;
+      }
+    }
 
     .icons {
       position: absolute;
       right: $space-middle;
       bottom: $space-middle;
+
+      @media(max-width: $tablet) {
+        position: initial;
+        margin: $space-small 0 0 auto;
+        display: block;
+        width: 63px;
+      }
 
       [class^=icon_] {
         font-size: 1.4rem;
@@ -105,4 +176,12 @@
   right: 0;
   opacity: $opacity-default;
   @include box-shadow($gray);
+
+  @media(max-width: $tablet) {
+    width: $main-width-tablet;
+  }
+
+  @media(max-width: $smartphone) {
+    width: $main-width-smartphone;
+  }
 }
